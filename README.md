@@ -113,3 +113,17 @@ A few problems here:
     rm -Rf ~/.vagrant.d
     ````
 3. You must also download and install vagrant version 1.7 or higher from the web site.  (no automatic update available)
+4. Upgrade Ruby to version above 2
+
+    ````
+    sudo apt-get update
+    sudo apt-get install build-essential make curl
+    gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+    \curl -sSL https://get.rvm.io | bash -s stable
+    source ~/.bash_profile
+    rvm install ruby-2.1.4
+    
+    rvm list
+    rvm use --default ruby-2.1.4
+    ````
+Check http://stackoverflow.com/questions/26595620/how-to-install-ruby-2-1-4-on-ubuntu-14-04 for more details on the instructions above.
