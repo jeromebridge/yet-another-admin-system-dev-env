@@ -103,11 +103,13 @@ Vagrant:
 A few problems here:
 
 1. Install `ruby-dev`
-        ````
-        sudo apt-get install ruby-dev
-        ````
+
+    ````
+    sudo apt-get install ruby-dev
+    ````
 2. Remove vagrant cached plugins
-        ````
-        rm -Rf ~/.vagrant.d
-        ````
+
+    ````
+    rm -Rf ~/.vagrant.d
+    ````
 3. You must also download and install vagrant version 1.7 or higher from the web site.  (no automatic update available)
