@@ -101,6 +101,7 @@ Vagrant:
 * Unknown configuration section 'librarian_puppet'.
 ````
 A few problems here:
+
 1. Install `ruby-dev`
     ````
     sudo apt-get install ruby-dev
