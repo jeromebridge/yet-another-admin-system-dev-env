@@ -112,7 +112,7 @@ A few problems here:
     ````
     rm -Rf ~/.vagrant.d
     ````
-3. You must also download and install vagrant version 1.7 or higher from the web site.  (no automatic update available)
+3. You must also download and install vagrant version 1.7.4 from the web site.  (no automatic update available)
 4. Upgrade Ruby to version above 2
 
     ````
