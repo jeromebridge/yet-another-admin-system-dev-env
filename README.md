@@ -154,3 +154,11 @@ went wrong.
 This happens because some of the sequence that vagrant runs is not correct.
 ##### Workaround
 1. Rerun the Vagrant configuration only: `vagrant provision`
+
+#### The box 'box-cutter/ubuntu1404-desktop' could not be found.
+You are likely using an older version of vagrant (1.4.x), which can't download the box properly.
+##### Workaround
+1. Download Vagrant 1.8.1 package from `https://releases.hashicorp.com/vagrant/1.8.1/vagrant_1.8.1_x86_64.deb`
+2. CD to the download location
+3. `sudo dpkg -i vagrant_1.8.1_x86_64.deb`
+4. Rerun the `vagrant up` command again.
