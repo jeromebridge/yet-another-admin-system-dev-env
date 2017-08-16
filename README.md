@@ -335,3 +335,7 @@ http://stackoverflow.com/questions/36811863/cant-install-vagrant-plugins-in-ubun
 #### 9. Error Starting Vagrant: undefined method `plugins_enabled?'
 
 See #24 for details. You may just need to update your system. `sudo apt-get update && sudo apt-get upgrade -y`
+
+
+## Notes
+https://blog.jessfraz.com/post/docker-containers-on-the-desktop/
