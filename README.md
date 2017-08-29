@@ -167,7 +167,7 @@ output=json
 ```
 4. Initialize Docker
 ```shell
-eval "$(docker run --rm --volume ~/.aws:/root/.aws cgswong/aws:latest aws ecr get-login)"
+eval "$(docker run --rm --volume ~/.aws:/root/.aws cgswong/aws:latest aws ecr get-login | gawk '{gsub(" -e none|Id$","",$0);print}')"
 ```
 5. Stop All
 ```shell
