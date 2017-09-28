@@ -29,7 +29,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #       commands.
   #  -p, creates directory regardless if parent directories exist
   config.trigger.before :ALL do
-    run "mkdir -p puppet/modules"
+    run "mkdir puppet"
+    run "mkdir puppet/modules"
   end
 
   # All Vagrant configuration is done here. The most common configuration
