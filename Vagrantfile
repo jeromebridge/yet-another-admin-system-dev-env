@@ -22,15 +22,33 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   if plugin_installed == true
     exec "vagrant #{ARGV.join(' ')}"
   end
+  
+  ## Detect OS
+  module OS
+    def OS.windows?
+        (/cygwin|mswin|mingw|bccwin|wince|emx/ =~ RUBY_PLATFORM) != nil
+    end
+    def OS.mac?
+        (/darwin/ =~ RUBY_PLATFORM) != nil
+    end
+    def OS.unix?
+        !OS.windows?
+    end
+    def OS.linux?
+        OS.unix? and not OS.mac?
+    end
+  end
+  
 
   ## Create 'puppet/modules' directory for puppet provisioner(s)
   #
   #  :ALL, denotes the successive commands will be applied to all vagrant
   #       commands.
   #  -p, creates directory regardless if parent directories exist
-  config.trigger.before :ALL do
-    run "mkdir puppet"
-    run "mkdir puppet/modules"
+  if OS.unix? then
+	config.trigger.before :ALL do
+	  run "mkdir -p puppet/modules"
+	end
   end
 
   # All Vagrant configuration is done here. The most common configuration
@@ -40,7 +58,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Every Vagrant virtual environment requires a box to build off of.
   # config.vm.box = "jhartman/xubuntu14.04.1"
   # config.vm.box = "boxcutter/ubuntu1604-desktop"
-#   config.vm.box = "bstoots/xubuntu-16.04-desktop-amd64"
+  # config.vm.box = "bstoots/xubuntu-16.04-desktop-amd64"
   config.vm.box = "acntech/xubuntu-developer"
 
   # Disable automatic box update checking. If you disable this, then
@@ -147,7 +165,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #  chef.json = { :java => { :install_flavor => "oracle", :jdk_version => "7", :oracle => { :accept_oracle_download_terms => true } } }
   #  chef.add_role "web"
 
-    # You may also specify custom JSON attributes:
+  # You may also specify custom JSON attributes:
   #  chef.json = { mysql_password: "foo" }
   #end
 
