@@ -167,7 +167,7 @@ output=json
 ```
 4. Initialize Docker
 ```shell
-eval "$(docker run --rm --volume ~/.aws:/root/.aws cgswong/aws:latest aws ecr get-login)"
+eval "$(docker run --rm --volume ~/.aws:/root/.aws cgswong/aws:latest aws ecr get-login | gawk '{gsub(" -e none|Id$","",$0);print}')"
 ```
 5. Stop All
 ```shell
@@ -331,3 +331,11 @@ A few problems here:
 ##### Workaround
 You can find a patch that must be applied to version 1.8.1 of vagrant:
 http://stackoverflow.com/questions/36811863/cant-install-vagrant-plugins-in-ubuntu-16-04/36991648#36991648
+
+#### 9. Error Starting Vagrant: undefined method `plugins_enabled?'
+
+See #24 for details. You may just need to update your system. `sudo apt-get update && sudo apt-get upgrade -y`
+
+
+## Notes
+https://blog.jessfraz.com/post/docker-containers-on-the-desktop/
