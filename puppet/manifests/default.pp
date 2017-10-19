@@ -157,7 +157,8 @@ include java_decompiler
 # Squirrel SQL
 class { "squirrel_sql":
   aliases => [
-    { name => "LOCAL", url => "jdbc:postgresql://127.0.0.1/yaas", user => "super", password => "postgres" }
+    { name => "YAAS: LOCAL", url => "jdbc:postgresql://127.0.0.1/yaas", user => "super", password => "postgres" },
+    { name => "YAAS: LOCAL(RATES)", url => "jdbc:h2:tcp://localhost:4444/mem:yaas_rate", user => "rate-user", password => "password" }
   ]
 }
 
